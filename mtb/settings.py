@@ -10,10 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 '''引入本地配置'''
-try:
-    from ..local_settings import *
-except ImportError:
-    pass
+
 
 from pathlib import Path
 
@@ -79,11 +76,15 @@ WSGI_APPLICATION = 'mtb.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+      'default': {
+          'ENGINE': 'django.db.backends.mysql',
+          'NAME': 'mtb',
+          'USER': 'root',
+          'PASSWORD': '123456',
+          'HOST': '127.0.0.1',
+          'PORT': '3306',
+      }
+  }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
